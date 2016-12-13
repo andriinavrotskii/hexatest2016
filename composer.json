@@ -1,0 +1,16 @@
+{
+    "name": "andriinavrotskii/hexatest2016",
+    "description": "Test for a Hexa",
+    "type": "library",
+    "require": {
+        "php": ">=7",
+        "phpunit/phpunit": "^5.7"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andrii Navrotskii",
+            "email": "andrii.navrotskii@gmail.com"
+        }
+    ]
+}
