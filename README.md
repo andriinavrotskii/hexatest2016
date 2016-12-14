@@ -9,7 +9,7 @@ $url = 'http://some_valid_url/image.jpg';
 $imageLoader = new ImageLoader();
 $result = $imageLoader->load($url);
 
-If all is OK - image will ba saved in php tmp directory.
+If all is OK - image will be saved in php tmp directory.
 
 $result:
 Array
