@@ -21,8 +21,8 @@ Array
 
 
 
-Advance usage
-------------- 
+Advanced usage
+-------------- 
 
 $path = 'some/path';
 $mime = ['image/jpeg', 'image/png', 'image/gif'];
