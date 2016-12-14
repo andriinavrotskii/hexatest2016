@@ -3,6 +3,7 @@
     "description": "Test for a Hexa",
     "version": "1.0.0",
     "type": "library",
+    "minimum-stability": "dev",
     "require": {
         "php": ">=7",
         "ext-curl": "*"
