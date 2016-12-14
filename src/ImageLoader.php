@@ -4,7 +4,8 @@ namespace Andriinavrotskii\Hexatest2016;
 use Exception;
 
 /**
-* 
+* Load image from url. 
+* Return array with filename, directory, and path loaded file. Or false if fail.
 */
 class ImageLoader
 {
@@ -174,9 +175,14 @@ class ImageLoader
     private function checkBeforeLoading(string $url)
     {
         // check headers
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new Exception("Url is not valid!");
+        }
+
         $headers = get_headers ($url);
-        if (substr($headers[0], 9, 3) != '200') {
-            throw new Exception("Response code - " . $headers[0]);
+        $responseCode = substr($headers[0], 9, 3);
+        if ($responseCode != '200') {
+            throw new Exception("Response code - " . $responseCode);
             return false;
         }
 
@@ -184,7 +190,7 @@ class ImageLoader
         if ($imageSize = @getimagesize($url)) {
 
             if ($imageSize['0'] < 1 && $imageSize['1'] < 1) {
-                throw new Exception("Image whith zero size - " . $imageSize['3']);
+                throw new Exception("Image with zero size - " . $imageSize['3']);
                 return false;
             }
 
@@ -258,6 +264,7 @@ class ImageLoader
             return true;
         }
 
+        throw new Exception("File is exist. Rewrite not allowed.");
         return false;
     }
 }
