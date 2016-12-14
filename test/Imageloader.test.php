@@ -2,7 +2,7 @@
 namespace Andriinavrotskii\Hexatest2016;
 
 /**
-* 
+* Tests for ImageLoader
 */
 class ImageLoaderTest extends \PHPUnit_Framework_TestCase
 {

@@ -12,5 +12,10 @@
             "name": "Andrii Navrotskii",
             "email": "andrii.navrotskii@gmail.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "Andriinavrotskii\\Hexatest2016\\": "./src"
+        }
+    }
 }
