@@ -1,6 +1,7 @@
 <?php
-namespace Andriinavrotskii\Hexatest2016;
+namespace Andriinavrotskii\Hexatest2016\Test;
 
+use Andriinavrotskii\Hexatest2016\ImageLoader;
 /**
 * Tests for ImageLoader
 */

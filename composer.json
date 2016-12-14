@@ -3,11 +3,12 @@
     "description": "Test for a Hexa",
     "type": "library",
     "require": {
-        "php": ">=7"
+        "php": ">=7",
+        "ext-curl": "*"
     },
     "require-dev": {
-        "ext-curl": "*",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^5.7",
+        "andriinavrotskii/hexatest2016": "*",
     },
     "license": "MIT",
     "authors": [
@@ -19,6 +20,11 @@
     "autoload": {
         "psr-4": {
             "Andriinavrotskii\\Hexatest2016\\": "./src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Andriinavrotskii\\Hexatest2016\\Test\\": "./test"
         }
     }
 }
