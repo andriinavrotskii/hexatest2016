@@ -3,7 +3,10 @@
     "description": "Test for a Hexa",
     "type": "library",
     "require": {
-        "php": ">=7",
+        "php": ">=7"
+    },
+    "require-dev": {
+        "ext-curl": "*",
         "phpunit/phpunit": "^5.7"
     },
     "license": "MIT",
