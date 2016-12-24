@@ -1,6 +1,7 @@
 {
     "name": "andriinavrotskii/hexatest2016",
     "description": "Image loader",
+    "version": "v.1.0.7",
     "type": "library",
     "require": {
         "php": ">=7",
