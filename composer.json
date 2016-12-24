@@ -12,6 +12,7 @@
         "ext-curl": "*",
         "phpunit/phpunit": "^5.7"
     },
+    "minimum-stability": "dev",
     "license": "MIT",
     "authors": [
         {
