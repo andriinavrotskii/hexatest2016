@@ -1,11 +1,13 @@
 {
     "name": "andriinavrotskii/hexatest2016",
     "description": "Image loader",
-    "version": "v1.0.5",
+    "version": "v1.0.6",
     "type": "library",
     "require": {
         "php": ">=7",
-        "ext-curl": "*",
+        "ext-curl": "*"
+    },
+    "require-dev": {
         "phpunit/phpunit": "^5.7"
     },
     "license": "MIT",
@@ -17,7 +19,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Andriinavrotskii\\Hexatest2016\\": "./src"
+            "Andriinavrotskii\\Hexatest2016\\": "./src",
+            "Andriinavrotskii\\Hexatest2016\\test\\": "./test",
         }
     }
 }
