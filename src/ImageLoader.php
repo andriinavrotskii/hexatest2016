@@ -49,13 +49,10 @@ class ImageLoader
      * @param string $fileName (optional)
      *
      * @return array Return array if success
-     * @return bool Return false if fail
      */
     public function load($url, $fileName = '')
     {
-        if ($this->checkBeforeLoading($url) === false) {
-            return;
-        }
+        $this->checkBeforeLoading($url);
 
         $curlChannel = curl_init($url);
         curl_setopt($curlChannel, CURLOPT_HEADER, 0);
@@ -65,19 +62,19 @@ class ImageLoader
         $raw = curl_exec($curlChannel);
         
         $curlMimeType = curl_getinfo($curlChannel, CURLINFO_CONTENT_TYPE);
-        if (!$this->checkAllowMimeTypes($curlMimeType)) {
-            throw new Exception("Not allowed mime type - " . $imageSize['mime']);
-            return false;
-        }
+
+        $this->checkAllowMimeTypes($curlMimeType);
 
         curl_close ($curlChannel);
 
         $saveTo = $this->getSaveTo($fileName, $curlMimeType);
 
-        if ($this->checkSaveToFile($saveTo['file']) && file_put_contents($saveTo['file'], $raw)) {
+        $this->checkSaveToFile($saveTo['file']);
+
+        if (file_put_contents($saveTo['file'], $raw)) {
             return $saveTo;
         } else {
-            return false;
+            throw new Exception("Image not saved");
         }
     }
 
@@ -123,10 +120,10 @@ class ImageLoader
      * 
      * @return void
      */
-    public function setAllowMimeTypes(array $allowMimeTypes = []) {
+    public function setAllowMimeTypes(array $allowMimeTypes = []) 
+    {
         if (empty($allowMimeTypes)) {
             throw new Exception("Expect at least one mime type");
-            return;
         }
 
         $this->allowMimeTypes = $allowMimeTypes;
@@ -157,7 +154,7 @@ class ImageLoader
     /**
      * Get allowRewriteFile
      * 
-     * @return bool
+     * @return void
      */
     public function getAllowRewriteFile()
     {
@@ -170,7 +167,7 @@ class ImageLoader
      *
      * @param string $url
      *
-     * @return bool 
+     * @return void 
      */
     private function checkBeforeLoading(string $url)
     {
@@ -183,7 +180,6 @@ class ImageLoader
         $responseCode = substr($headers[0], 9, 3);
         if ($responseCode != '200') {
             throw new Exception("Response code - " . $responseCode);
-            return false;
         }
 
         // check image size
@@ -191,20 +187,13 @@ class ImageLoader
 
             if ($imageSize['0'] < 1 && $imageSize['1'] < 1) {
                 throw new Exception("Image with zero size - " . $imageSize['3']);
-                return false;
             }
 
-            if (!$this->checkAllowMimeTypes($imageSize['mime'])) {
-                throw new Exception("Not allowed mime type - " . $imageSize['mime']);
-                return false;
-            }
+            $this->checkAllowMimeTypes($imageSize['mime']);
 
         } else {
             throw new Exception("File is not a image!");
-            return false;
         }
-
-        return true;
     }
 
 
@@ -213,11 +202,14 @@ class ImageLoader
      * 
      * @param string $mimeType
      *
-     * @return bool
+     * @return void
      */
     private function checkAllowMimeTypes(string $mimeType)
     {
-        return in_array ($mimeType, $this->allowMimeTypes);
+        if (!in_array ($mimeType, $this->allowMimeTypes)) {
+            throw new Exception("Not allowed mime type - " . $mimeType);
+        }
+
     }
 
 
@@ -254,18 +246,15 @@ class ImageLoader
      *
      * @param string $file
      *
-     * @return bool
+     * @return void
      */
     private function checkSaveToFile(string $file)
     {
-        if (!file_exists($file)) {
-            return true;
-        } elseif (file_exists($file) && $this->allowRewriteFile) {
-            return true;
+        if (!file_exists($file) || (file_exists($file) && $this->allowRewriteFile)) {
+            return;
         }
 
         throw new Exception("File is exist. Rewrite not allowed.");
-        return false;
     }
 }
 
