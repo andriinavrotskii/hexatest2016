@@ -49,6 +49,8 @@ class ImageLoader
      * @param string $fileName (optional)
      *
      * @return array Return array if success
+     *
+     * @throws Exception
      */
     public function load($url, $fileName = '')
     {
@@ -84,6 +86,8 @@ class ImageLoader
      * @param string $path (optional)
      * 
      * @return void
+     *
+     * @throws Exception
      */
     public function setSaveToPath(string $path = '')
     {
@@ -119,6 +123,8 @@ class ImageLoader
      * @param array $allowMimeTypes (optional)
      * 
      * @return void
+     *
+     * @throws Exception
      */
     public function setAllowMimeTypes(array $allowMimeTypes = []) 
     {
@@ -168,6 +174,8 @@ class ImageLoader
      * @param string $url
      *
      * @return void 
+     *
+     * @throws Exception
      */
     private function checkBeforeLoading(string $url)
     {
@@ -203,6 +211,8 @@ class ImageLoader
      * @param string $mimeType
      *
      * @return void
+     *
+     * @throws Exception
      */
     private function checkAllowMimeTypes(string $mimeType)
     {
@@ -247,6 +257,8 @@ class ImageLoader
      * @param string $file
      *
      * @return void
+     *
+     * @throws Exception
      */
     private function checkSaveToFile(string $file)
     {
