@@ -24,7 +24,7 @@ class ImageLoader
     private $allowMimeTypes;
 
     /**
-     * Rewrite existing file 
+     * Rewrite existing file. true - allow rewrite, false - disallow
      *
      * @var bool
      */

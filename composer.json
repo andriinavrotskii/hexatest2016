@@ -21,7 +21,7 @@
     "autoload": {
         "psr-4": {
             "Andriinavrotskii\\Hexatest2016\\": "./src",
-            "Andriinavrotskii\\Hexatest2016\\test\\": "./test"
+            "Andriinavrotskii\\Hexatest2016\\Tests\\": "./tests"
         }
     }
 }

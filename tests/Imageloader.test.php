@@ -1,5 +1,5 @@
 <?php
-namespace Andriinavrotskii\Hexatest2016\Test;
+namespace Andriinavrotskii\Hexatest2016\Tests;
 
 use Andriinavrotskii\Hexatest2016\ImageLoader;
 /**
@@ -23,8 +23,8 @@ class ImageLoaderTest extends \PHPUnit_Framework_TestCase
 
         $expectation = [
             'path' => __DIR__ . DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR,
-            'name' => 'my_image.jpg',
-            'file' => __DIR__ . DIRECTORY_SEPARATOR . 'images'. DIRECTORY_SEPARATOR . 'my_image.png'
+            'name' => 'my_image.jpeg',
+            'file' => __DIR__ . DIRECTORY_SEPARATOR . 'images'. DIRECTORY_SEPARATOR . 'my_image.jpeg'
         ];
         
         $this->assertEquals($result, $expectation);
