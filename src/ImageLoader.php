@@ -7,7 +7,7 @@ use Exception;
 * Load image from url. 
 * Return array with filename, directory, and path loaded file. Or false if fail.
 */
-class ImageLoader
+class ImageLoader implements ImageLoaderInterface
 {
     /**
      * Directory where image will be saved
@@ -52,7 +52,7 @@ class ImageLoader
      *
      * @throws Exception
      */
-    public function load($url, $fileName = '')
+    public function load(string $url,string  $fileName = '')
     {
         $this->checkBeforeLoading($url);
 
@@ -269,4 +269,3 @@ class ImageLoader
         throw new Exception("File is exist. Rewrite not allowed.");
     }
 }
-

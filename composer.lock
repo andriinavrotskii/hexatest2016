@@ -563,12 +563,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "1f1d3c5b9570d8c49760997caa1afa69a3d9e454"
+                "reference": "86c7f0affb9e2c17b1fe53a82cf0aa2ed5a31990"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/1f1d3c5b9570d8c49760997caa1afa69a3d9e454",
-                "reference": "1f1d3c5b9570d8c49760997caa1afa69a3d9e454",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/86c7f0affb9e2c17b1fe53a82cf0aa2ed5a31990",
+                "reference": "86c7f0affb9e2c17b1fe53a82cf0aa2ed5a31990",
                 "shasum": ""
             },
             "require": {
@@ -580,7 +580,7 @@
                 "myclabs/deep-copy": "~1.3",
                 "php": "^5.6 || ^7.0",
                 "phpspec/prophecy": "^1.6.2",
-                "phpunit/php-code-coverage": "^4.0.3",
+                "phpunit/php-code-coverage": "^4.0.4",
                 "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-timer": "^1.0.6",
@@ -637,11 +637,11 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-12-27 17:34:21"
+            "time": "2016-12-29 06:52:24"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "3.4.3",
+            "version": "3.4.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",

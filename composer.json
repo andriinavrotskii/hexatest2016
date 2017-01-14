@@ -20,8 +20,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Andriinavrotskii\\Hexatest2016\\": "./src",
-            "Andriinavrotskii\\Hexatest2016\\Tests\\": "./tests"
+            "Andriinavrotskii\\Hexatest2016\\": "src/",
+            "Andriinavrotskii\\Hexatest2016\\Tests\\": "tests/"
         }
     }
 }
