@@ -16,6 +16,7 @@ class ImageLoader implements ImageLoaderInterface
      */
     private $saveToPath;
 
+
     /**
      * Allowed mime file types
      *
@@ -23,12 +24,14 @@ class ImageLoader implements ImageLoaderInterface
      */
     private $allowMimeTypes;
 
+
     /**
      * Rewrite existing file. true - allow rewrite, false - disallow
      *
      * @var bool
      */
     private $allowRewriteFile;
+
 
     /**
      * Construct method
@@ -41,6 +44,7 @@ class ImageLoader implements ImageLoaderInterface
         $this->setAllowMimeTypes(['image/jpeg', 'image/png', 'image/gif']);
         $this->setAllowRewriteFile(true);
     }
+
 
     /**
      * Main method - loading image
@@ -60,11 +64,11 @@ class ImageLoader implements ImageLoaderInterface
         curl_setopt($curlChannel, CURLOPT_HEADER, 0);
         curl_setopt($curlChannel, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($curlChannel, CURLOPT_BINARYTRANSFER, 1);
-
+var_dump(curl_getinfo($curlChannel, CURLINFO_CONTENT_TYPE));
         $raw = curl_exec($curlChannel);
-        
-        $curlMimeType = curl_getinfo($curlChannel, CURLINFO_CONTENT_TYPE);
+var_dump(curl_getinfo($curlChannel, CURLINFO_CONTENT_TYPE));
 
+        $curlMimeType = curl_getinfo($curlChannel, CURLINFO_CONTENT_TYPE);
         $this->checkAllowMimeTypes($curlMimeType);
 
         curl_close ($curlChannel);
@@ -79,6 +83,7 @@ class ImageLoader implements ImageLoaderInterface
             throw new Exception("Image not saved");
         }
     }
+
 
     /**
      * Set path for images, if $path is empty - set php temp dir
@@ -105,6 +110,7 @@ class ImageLoader implements ImageLoaderInterface
             throw new Exception("Path not exist - " . $path);
         }
     }
+
 
     /**
      * Get directory for images
@@ -135,6 +141,7 @@ class ImageLoader implements ImageLoaderInterface
         $this->allowMimeTypes = $allowMimeTypes;
     }
 
+
     /**
      * Get allowed mime types
      * 
@@ -156,6 +163,7 @@ class ImageLoader implements ImageLoaderInterface
     {
         $this->allowRewriteFile = $allowRewriteFile;
     }
+
 
     /**
      * Get allowRewriteFile
@@ -250,6 +258,7 @@ class ImageLoader implements ImageLoaderInterface
 
         return $saveTo;
     }
+
 
     /**
      * Check file now exist or not and allowed rewrite file or not/
